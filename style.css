@@ -1,0 +1,28 @@
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+  background:#111;
+  overflow:hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#fff;
+}
+#ui{
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 10;
+  background: rgba(0,0,0,0.4);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+#speed{
+  font-size:16px;
+  font-weight:600;
+}
+#controls{
+  font-size:12px;
+  margin-top:6px;
+  opacity:0.9;
+}
+canvas { display:block; }
