@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>不知道取什么名的游戏</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 横竖屏遮罩 -->
+  <div id="orientationOverlay" class="overlay hidden">
+    <div class="overlay-content">
+      <h2>请将设备横屏并开启屏幕自动旋转</h2>
+      <p>旋转到横屏后游戏会自动开始</p>
+    </div>
+  </div>
+
+  <!-- 主菜单（一辆车作为主视觉） -->
+  <div id="menu" class="overlay menu">
+    <div class="menu-top">
+      <div class="game-title">不知道取什么名的游戏</div>
+    </div>
+    <div class="menu-center">
+      <div id="menuCar" class="menu-car">
+        <!-- 简单 CSS 车 -->
+        <div class="car-body"></div>
+        <div class="wheel wheel-fl"></div>
+        <div class="wheel wheel-fr"></div>
+        <div class="wheel wheel-bl"></div>
+        <div class="wheel wheel-br"></div>
+      </div>
+    </div>
+    <div class="menu-bottom">
+      <button id="startBtn" class="big-btn">开始游戏</button>
+    </div>
+  </div>
+
+  <!-- 三维画布 -->
+  <canvas id="threeCanvas"></canvas>
+
+  <!-- HUD / 控件 -->
+  <div id="hud">
+    <div id="speed">速度: 0 km/h</div>
+    <div id="controls">
+      <button id="leftBtn" class="ctrl">◀</button>
+      <button id="accelBtn" class="ctrl accel">▲</button>
+      <button id="rightBtn" class="ctrl">▶</button>
+      <button id="brakeBtn" class="ctrl brake">▼</button>
+      <button id="handbrakeBtn" class="ctrl handbrake">手刹</button>
+    </div>
+  </div>
+
+  <!-- Traffic legend + audio toggle -->
+  <div class="traffic-legend">
+    信号灯: 绿 / 黄 / 红
+  </div>
+
+  <div class="audio-controls">
+    <label><input id="soundToggle" type="checkbox" checked /> 声音</label>
+  </div>
+
+  <!-- 简单提示文本（横屏强制） -->
+  <div id="portraitTip" class="overlay hidden">
+    <div class="overlay-content">
+      <h2>请横屏运行游戏</h2>
+      <p>检测到竖屏，请打开屏幕自动旋转并旋转到横屏以开始游戏。</p>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

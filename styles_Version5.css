@@ -1,0 +1,59 @@
+/* 基本样式与响应式（强制横屏提示） */
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Helvetica Neue", Arial, sans-serif; }
+
+html,body { width: 100%; height: 100%; background: #111; color: #fff; overflow: hidden; }
+
+#threeCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* 覆盖层通用 */
+.overlay { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.6); z-index: 30; }
+.overlay.hidden { display: none; }
+.overlay .overlay-content { text-align:center; padding: 20px; border-radius: 8px; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); }
+
+/* 主菜单 */
+.menu { flex-direction: column; padding: 20px; }
+.menu-top { position: absolute; left: 20px; top: 20px; z-index:40; }
+.game-title { font-size: 18px; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
+
+.menu-center { flex: 1; display:flex; align-items:center; justify-content:center; }
+.menu-car { width: 220px; height: 120px; position: relative; transform: scale(1); }
+.car-body { position:absolute; left:20px; right:20px; top:20px; bottom:30px; border-radius: 12px; background: linear-gradient(180deg,#cc0000,#880000); box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+.wheel { width: 34px; height:34px; background: #222; border-radius:50%; position:absolute; box-shadow: inset 0 -4px 6px rgba(255,255,255,0.04); }
+.wheel-fl { left: -6px; top: 10px; }
+.wheel-fr { right: -6px; top: 10px; }
+.wheel-bl { left: -6px; bottom: 6px; }
+.wheel-br { right: -6px; bottom: 6px; }
+
+.menu-bottom { padding: 12px; display:flex; justify-content:center; }
+.big-btn { font-size: 20px; padding: 12px 28px; border-radius: 8px; border: none; background: #1db954; color: #fff; box-shadow: 0 6px 16px rgba(0,0,0,0.6); cursor: pointer; }
+
+/* HUD 控件（右下） */
+#hud { position: absolute; right: 14px; bottom: 14px; z-index: 40; display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
+#speed { background: rgba(0,0,0,0.4); padding:8px 12px; border-radius:6px; font-size:14px; backdrop-filter: blur(4px); }
+#controls { display:flex; gap:8px; align-items:center; }
+
+/* 控制按钮 */
+.ctrl { width:58px; height:58px; border-radius:10px; border:none; background: rgba(255,255,255,0.08); color:#fff; font-size:22px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+.ctrl:active { transform: translateY(2px); }
+.accel { background: linear-gradient(180deg,#2ecc71,#27ae60); }
+.brake { background: linear-gradient(180deg,#e74c3c,#c0392b); }
+.handbrake { background: linear-gradient(180deg,#f39c12,#d35400); }
+
+/* Traffic legend (small) */
+.traffic-legend { position: absolute; left: 14px; bottom: 14px; z-index: 40; background: rgba(0,0,0,0.35); padding:8px 10px; border-radius:6px; font-size:13px; }
+
+/* audio controls */
+.audio-controls { position: absolute; left: 14px; top: 14px; z-index: 40; background: rgba(0,0,0,0.35); padding:8px 10px; border-radius:6px; font-size:13px; display:flex; gap:8px; align-items:center; }
+
+/* pedestrian style (HUD helper if needed) */
+.ped-legend { position:absolute; left:14px; top:60px; z-index:40; background: rgba(0,0,0,0.25); padding:6px 8px; border-radius:6px; font-size:12px; }
+
+@media (orientation:portrait) {
+  /* JS 控制提示，这里是备用样式 */
+}
+
+@media (max-width:600px) {
+  .big-btn { font-size:18px; padding:10px 20px; }
+  .ctrl { width:52px; height:52px; font-size:20px; }
+}
